@@ -1,7 +1,7 @@
 // src/App.js
 import React from 'react';
 import './App.css';
-import PokeFetcher from './PokeFetcher';
+import PokemonFetcher from './PokemonFetcher';
 
 function App() {
   return (
@@ -10,7 +10,7 @@ function App() {
         <p>
           Pokémon Finder
         </p>
-        <PokeFetcher />
+        <PokemonFetcher />
       </header>
     </div>
   );
