@@ -12,6 +12,24 @@ export default function PokemonFetcher() {
     setPokemonData(data);
   };
 
+  const fetchNext = async () => {
+    if (pokemonData && pokemonData.id !== 1025) {
+      let name = pokemonData.id + 1
+      const response = await fetch(`http://localhost:3001/pokemon/${name}`);
+      const data = await response.json();
+      setPokemonData(data);
+    }
+  };
+
+  const fetchPrev = async () => {
+    if (pokemonData && pokemonData.id !== 1) {
+      let name = pokemonData.id - 1
+      const response = await fetch(`http://localhost:3001/pokemon/${name}`);
+      const data = await response.json();
+      setPokemonData(data);
+    }
+  };
+
   return (
     <div id="fetcher">
       <input
@@ -23,7 +41,11 @@ export default function PokemonFetcher() {
       <button onClick={fetchPokemon}>Fetch Pokémon</button>
       {pokemonData && (
         <div id="info">
-          <h3>{pokemonData.name} #{pokemonData.id}</h3>
+          <div id="buttons">
+            <button id="prev" onClick={fetchPrev}>Previous</button>
+            <h3>{pokemonData.name} #{pokemonData.id}</h3>
+            <button id="next" onClick={fetchNext}>Next</button>
+          </div>
           <img src={pokemonData.sprites.front_default} alt={pokemonData.name} height="130" width="130"/>
           <div id="sub_info">
             <div id="left">

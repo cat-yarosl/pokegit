@@ -57,6 +57,21 @@ h3::first-letter {
   width: 10vw;
 }
 
+#buttons {
+  display: flex;
+  flex-direction: row;
+}
+
+#prev {
+  margin-right: 15px;
+  align-self: center;
+}
+
+#next {
+  margin-left: 15px;
+  align-self: center;
+}
+
 #info {
   display: flex;
   flex-direction: column;
