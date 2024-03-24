@@ -6,7 +6,8 @@ export default function PokemonFetcher() {
   const [pokemonData, setPokemonData] = useState(null);
 
   const fetchPokemon = async () => {
-    const response = await fetch(`http://localhost:3001/pokemon/${pokemonName}`);
+    let name = pokemonName.toLowerCase()
+    const response = await fetch(`http://localhost:3001/pokemon/${name}`);
     const data = await response.json();
     setPokemonData(data);
   };
