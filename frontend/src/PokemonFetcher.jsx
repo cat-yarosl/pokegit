@@ -23,10 +23,10 @@ export default function PokemonFetcher() {
       <button onClick={fetchPokemon}>Fetch Pokémon</button>
       {pokemonData && (
         <div>
-          <h2>{pokemonData.name}</h2>
-          <img src={pokemonData.sprites.front_default} alt={pokemonData.name} />
-          <p>Height: {pokemonData.height}</p>
-          <p>Weight: {pokemonData.weight}</p>
+          <h2>{pokemonData.name} #{pokemonData.id}</h2>
+          <img src={pokemonData.sprites.front_default} alt={pokemonData.name} height="200" width="200"/>
+          <p>Height: {pokemonData.height/10} m</p>
+          <p>Weight: {pokemonData.weight/10} kg</p>
         </div>
       )}
     </div>
