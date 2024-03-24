@@ -7,9 +7,9 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <p>
+        <h2>
           Pokémon Finder
-        </p>
+        </h2>
         <PokemonFetcher />
       </header>
     </div>

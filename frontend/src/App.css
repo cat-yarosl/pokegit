@@ -37,11 +37,49 @@
   }
 }
 
-h2::first-letter {
+h3::first-letter {
   text-transform: capitalize;
 }
 
-.info {
+#fetcher {
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#fetcher input {
+  width: 15vw;
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+#fetcher button {
+  width: 10vw;
+}
+
+#info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#sub_info {
   display: flex;
   flex-direction: row;
+}
+
+#left {
+  margin-right: 10vw;
+}
+
+#right {
+  text-align: left;
+}
+
+#left p {
+  text-align: left;
+}
+
+p {
+  line-height: 10px;
 }

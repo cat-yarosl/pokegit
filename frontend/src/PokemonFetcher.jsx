@@ -13,7 +13,7 @@ export default function PokemonFetcher() {
   };
 
   return (
-    <div>
+    <div id="fetcher">
       <input
         type="text"
         value={pokemonName}
@@ -23,15 +23,24 @@ export default function PokemonFetcher() {
       <button onClick={fetchPokemon}>Fetch Pokémon</button>
       {pokemonData && (
         <div id="info">
-          <div id="left">
-            <h2>{pokemonData.name} #{pokemonData.id}</h2>
-            <img src={pokemonData.sprites.front_default} alt={pokemonData.name} height="150" width="150"/>
-            <p>Height: {pokemonData.height/10} m</p>
-            <p>Weight: {pokemonData.weight/10} kg</p>
-          </div>
-          <div id="right">
-            <h2>Stats</h2>
-            <p>HP: {pokemonData.stats[0].basestat}</p>
+          <h3>{pokemonData.name} #{pokemonData.id}</h3>
+          <img src={pokemonData.sprites.front_default} alt={pokemonData.name} height="130" width="130"/>
+          <div id="sub_info">
+            <div id="left">
+              <h4>Info</h4>
+              <p>Height: {pokemonData.height/10} m</p>
+              <p>Weight: {pokemonData.weight/10} kg</p>
+            </div>
+            <div id="right">
+              <h4>Stats</h4>
+              <p>HP: {pokemonData.stats[1].base_stat}</p>
+              <p>Attack: {pokemonData.stats[1].base_stat}</p>
+              <p>Defense: {pokemonData.stats[2].base_stat}</p>
+              <p>Sp. Attack: {pokemonData.stats[3].base_stat}</p>
+              <p>Sp Defense: {pokemonData.stats[4].base_stat}</p>
+              <p>Speed: {pokemonData.stats[5].base_stat}</p>
+              <h4>Total: {pokemonData.stats[0].base_stat + pokemonData.stats[1].base_stat + pokemonData.stats[2].base_stat + pokemonData.stats[3].base_stat + pokemonData.stats[4].base_stat + pokemonData.stats[5].base_stat}</h4>
+            </div>
           </div>
         </div>
       )}
