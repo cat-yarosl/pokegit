@@ -30,6 +30,16 @@ export default function PokemonFetcher() {
     }
   };
 
+  const getType = () => {
+    let type = pokemonData.types[0].type.name
+
+    if (pokemonData.types.length > 1) {
+      type = type + '/' + pokemonData.types[1].type.name
+    }
+    console.log(type, pokemonData.types.length);
+    return type;
+  };
+
   return (
     <div id="fetcher">
       <input
@@ -47,6 +57,7 @@ export default function PokemonFetcher() {
             <button id="next" onClick={fetchNext}>Next</button>
           </div>
           <img src={pokemonData.sprites.front_default} alt={pokemonData.name} height="130" width="130"/>
+          <h3>{getType()}</h3>
           <div id="sub_info">
             <div id="left">
               <h4>Info</h4>
