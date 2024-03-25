@@ -1,5 +1,6 @@
 // src/PokemonFetcher.js
 import React, { useState } from 'react';
+import StatChart from './StatChart';
 
 export default function PokemonFetcher() {
   const [pokemonName, setPokemonName] = useState('');
