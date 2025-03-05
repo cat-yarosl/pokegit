@@ -26,7 +26,7 @@ const PokemonDetails: React.FC<PokemonDetailsProps> = ({ height, weight, pokedex
       '>
         <p className='
           mr-2
-        '>{feet}' {inches}'
+        '>{feet}' {inches}"
         </p>
         <p>{weightInPounds} lbs</p>
       </div>

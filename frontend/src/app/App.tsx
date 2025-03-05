@@ -3,23 +3,29 @@ import './globals.css';
 import Header from './components/Header';
 import SearchBar from './components/SearchBar';
 import PokemonCard from './components/Pokemon/PokemonCard';
+import { fetchPokemon } from './api/fetchPokemon/route';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   const [searchTerm, setSearchTerm] = useState('');
   const [pokemonInfo, setPokemonInfo] = useState(null);
 
-  const fetchPokemon = async (pokemonName: string) => {
-    const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName.toLowerCase()}`);
-    const data = await response.json();
-    setPokemonInfo(data);
-  };
+  const handleFetchPokemon = async (pokemonName: string) => {
+    try {
+      const data = await fetchPokemon(pokemonName);
 
-  const handleSearch = async () => {
-    fetchPokemon(searchTerm);
+      if (data) 
+        setPokemonInfo(data);
+      else 
+        toast.error('Pokémon not found');
+    } catch (error) {
+      toast.error('Pokémon not found');
+    }
   };
 
   useEffect(() => {
-    fetchPokemon('pikachu');
+    handleFetchPokemon('pikachu');
   }, []);
 
   return (
@@ -43,14 +49,16 @@ function App() {
         <Header 
           text='Pokemon Finder'
           subText='What Pokemon would you like to find?'
+          imgSrc='/logo.png'
         />
         <SearchBar 
           searchTerm={searchTerm} 
           setSearchTerm={setSearchTerm} 
-          handleSearch={handleSearch} 
+          fetchPokemon={handleFetchPokemon} 
         />
         {pokemonInfo && <PokemonCard pokemonInfo={pokemonInfo} />}
       </div>
+      <ToastContainer />
     </div>
   );
 }

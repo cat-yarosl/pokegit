@@ -5,14 +5,18 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
 interface SearchBarProps {
   searchTerm: string;
   setSearchTerm: (term: string) => void;
-  handleSearch: () => void;
+  fetchPokemon: (pokemonName: string) => void;
 }
 
-const SearchBar: React.FC<SearchBarProps> = ({ searchTerm, setSearchTerm, handleSearch }) => {
+const SearchBar: React.FC<SearchBarProps> = ({ searchTerm, setSearchTerm, fetchPokemon }) => {
   const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
     if (event.key === 'Enter') {
-      handleSearch();
+      fetchPokemon(searchTerm);
     }
+  };
+
+  const handleSearch = () => {
+    fetchPokemon(searchTerm);
   };
 
   return (

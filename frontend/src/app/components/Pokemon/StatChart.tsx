@@ -68,8 +68,7 @@ const StatChart: React.FC<StatChartProps> = ({ pokemonInfo }) => {
       mt-2 
       p-4 
       bg-gray-800 
-      rounded-lg 
-      shadow-md
+      rounded-lg
     ">
       <Bar 
         data={data} 
