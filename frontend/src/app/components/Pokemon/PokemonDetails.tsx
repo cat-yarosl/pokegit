@@ -13,12 +13,24 @@ const PokemonDetails: React.FC<PokemonDetailsProps> = ({ height, weight, pokedex
   const weightInPounds = (weight / 4.536).toFixed(1); // Convert hectograms to pounds
 
   return (
-    <div className="pokemon-details text-lg">
-      <div className="flex justify-center items-center mt-4 mb-4">
-        <p className='mr-2'>{feet}' {inches}"</p>
+    <div className='
+      pokemon-details 
+      text-lg
+    '>
+      <div className='
+        flex 
+        justify-center 
+        items-center 
+        mt-4 
+        mb-4
+      '>
+        <p className='
+          mr-2
+        '>{feet}' {inches}'
+        </p>
         <p>{weightInPounds} lbs</p>
       </div>
-      <p><strong>Pokédex Entry:</strong> {pokedexEntry}</p>
+      <p>{pokedexEntry}</p>
     </div>
   );
 };

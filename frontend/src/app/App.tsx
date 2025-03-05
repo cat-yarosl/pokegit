@@ -23,8 +23,23 @@ function App() {
   }, []);
 
   return (
-    <div className="App flex justify-center items-center min-h-screen bg-gray-900">
-      <div className="w-full max-w-xl p-4 bg-white rounded-lg shadow-md">
+    <div className='
+      App 
+      flex 
+      justify-center 
+      items-center 
+      min-h-screen 
+      bg-gray-900 
+      text-white
+    '>
+      <div className='
+        w-full 
+        max-w-xl 
+        p-4 
+        bg-gray-800 
+        rounded-lg 
+        shadow-md
+      '>
         <Header 
           text='Pokemon Finder'
           subText='What Pokemon would you like to find?'

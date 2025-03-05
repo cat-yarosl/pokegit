@@ -29,7 +29,18 @@ const TypeBadge: React.FC<TypeBadgeProps> = ({ typeName }) => {
   const typeClass = typeColors[typeName.toLowerCase()] || 'bg-gray-400';
 
   return (
-    <span className={`type-badge ${typeClass} text-white px-2 py-1 rounded-lg text-sm mr-1`}>
+    <span className={`
+      type-badge 
+      ${typeClass} 
+      text-white 
+      px-2 
+      py-1 
+      rounded-lg 
+      text-sm 
+      mr-2
+      `} 
+      style={{ boxShadow: 'inset 0 0 0 2px #d1d5db' }}
+    >
       {typeName}
     </span>
   );

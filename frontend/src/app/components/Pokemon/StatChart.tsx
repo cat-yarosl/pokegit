@@ -31,6 +31,14 @@ const StatChart: React.FC<StatChartProps> = ({ pokemonInfo }) => {
     scales: {
       x: {
         max: maxStatValue,
+        ticks: {
+          color: 'white',
+        }
+      },
+      y: {
+        ticks: {
+          color: 'white',
+        },
       },
     },
     plugins: {
@@ -40,11 +48,12 @@ const StatChart: React.FC<StatChartProps> = ({ pokemonInfo }) => {
       title: {
         display: true,
         text: 'Pokémon Stats',
+        color: 'white',
       },
       datalabels: {
         anchor: 'end' as const,
         align: 'end' as const,
-        color: 'black',
+        color: 'gray',
         font: {
           weight: 'bold' as const,
         },
@@ -54,8 +63,18 @@ const StatChart: React.FC<StatChartProps> = ({ pokemonInfo }) => {
   };
 
   return (
-    <div className="stats-box p-4 bg-white rounded-lg shadow-md">
-      <Bar data={data} options={options} />
+    <div className="
+      stats-box 
+      mt-2 
+      p-4 
+      bg-gray-800 
+      rounded-lg 
+      shadow-md
+    ">
+      <Bar 
+        data={data} 
+        options={options} 
+      />
     </div>
   );
 };
