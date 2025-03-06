@@ -4,8 +4,10 @@ const cors = require('cors');
 const dotenv = require('dotenv');
 const pokemonRoutes = require('./routes/pokemon');
 const errorHandler = require('./middlewares/errorHandler');
+const connectDB = require('./config/db');
 
 dotenv.config();
+connectDB();
 
 const app = express();
 const PORT = process.env.PORT || 5000;
