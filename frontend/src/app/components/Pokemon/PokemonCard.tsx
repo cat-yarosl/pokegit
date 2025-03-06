@@ -38,7 +38,7 @@ const PokemonCard: React.FC<PokemonCardProps> = ({ pokemonInfo }) => {
         capitalize 
         text-white
       ">
-        {pokemonInfo.name}
+        {pokemonInfo.name} #{pokemonInfo.id}
       </h2>
       <PokemonSprites 
         sprites={pokemonInfo.sprites} 
