@@ -15,7 +15,8 @@ router.get('/:name', async (req, res) => {
     if (!pokemon) {
       // If not in the database, fetch from PokeAPI
       const response = await axios.get(`https://pokeapi.co/api/v2/pokemon/${name}`);
-      pokemon = new Pokemon({ name, data: response.data });
+      const key = response.data.id;
+      pokemon = new Pokemon({ name: key, data: response.data });
       await pokemon.save();
     }
 
