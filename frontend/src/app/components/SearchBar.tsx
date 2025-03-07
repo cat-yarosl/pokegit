@@ -10,9 +10,8 @@ interface SearchBarProps {
 
 const SearchBar: React.FC<SearchBarProps> = ({ searchTerm, setSearchTerm, fetchPokemon }) => {
   const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
-    if (event.key === 'Enter') {
+    if (event.key === 'Enter') 
       fetchPokemon(searchTerm);
-    }
   };
 
   const handleSearch = () => {

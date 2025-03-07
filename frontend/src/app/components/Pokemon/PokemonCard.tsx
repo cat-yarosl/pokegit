@@ -3,12 +3,15 @@ import TypeBadge from './TypeBadge';
 import StatChart from './StatChart';
 import PokemonDetails from './PokemonDetails';
 import PokemonSprites from './PokemonSprites';
+import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 interface PokemonCardProps {
   pokemonInfo: any;
+  fetchPokemon: (pokemonName: string) => void;
 }
 
-const PokemonCard: React.FC<PokemonCardProps> = ({ pokemonInfo }) => {
+const PokemonCard: React.FC<PokemonCardProps> = ({ pokemonInfo, fetchPokemon }) => {
   const [pokedexEntry, setPokedexEntry] = useState('');
 
   useEffect(() => {
@@ -23,6 +26,14 @@ const PokemonCard: React.FC<PokemonCardProps> = ({ pokemonInfo }) => {
     fetchPokedexEntry();
   }, [pokemonInfo]);
 
+  const handlePrevious = () => {
+    fetchPokemon((pokemonInfo.id - 1).toString());
+  };
+
+  const handleNext = () => {
+    fetchPokemon((pokemonInfo.id + 1).toString());
+  };
+
   return (
     <div className="
       pokemon-info 
@@ -31,15 +42,23 @@ const PokemonCard: React.FC<PokemonCardProps> = ({ pokemonInfo }) => {
       rounded-lg 
       shadow-md
     ">
-      <h2 className="
-        text-2xl 
-        font-bold 
-        mb-2 
-        capitalize 
-        text-white
-      ">
-        {pokemonInfo.name} #{pokemonInfo.id}
-      </h2>
+      <div className="flex items-center justify-between">
+        <button onClick={handlePrevious} className="text-white cursor-pointer">
+          <FontAwesomeIcon icon={faChevronLeft} />
+        </button>
+        <h2 className="
+          text-2xl 
+          font-bold 
+          mb-2 
+          capitalize 
+          text-white
+        ">
+          {pokemonInfo.name} #{pokemonInfo.id}
+        </h2>
+        <button onClick={handleNext} className="text-white cursor-pointer">
+          <FontAwesomeIcon icon={faChevronRight} />
+        </button>
+      </div>
       <PokemonSprites 
         sprites={pokemonInfo.sprites} 
         name={pokemonInfo.name} 

@@ -56,7 +56,10 @@ function App() {
           setSearchTerm={setSearchTerm} 
           fetchPokemon={handleFetchPokemon} 
         />
-        {pokemonInfo && <PokemonCard pokemonInfo={pokemonInfo} />}
+        {pokemonInfo && <PokemonCard 
+          pokemonInfo={pokemonInfo} 
+          fetchPokemon={handleFetchPokemon}
+        />}
       </div>
       <ToastContainer />
     </div>
