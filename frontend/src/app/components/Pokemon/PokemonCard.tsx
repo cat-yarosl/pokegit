@@ -3,8 +3,8 @@ import TypeBadge from './TypeBadge';
 import StatChart from './StatChart';
 import PokemonDetails from './PokemonDetails';
 import PokemonSprites from './PokemonSprites';
-import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 
 interface PokemonCardProps {
   pokemonInfo: any;
